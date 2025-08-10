@@ -33,9 +33,7 @@ export const RotatingText = ({
     else return Array.from({ length: text.length }, () => timing)
   }, [timing])
 
-  const wordCopy = prefersReducedMotion
-    ? undefined
-    : {
+  const wordCopy = {
         rotate: (i: number) => ({
           y: ['0%', '30%'],
           rotateX: [0, 90],
@@ -45,9 +43,7 @@ export const RotatingText = ({
         })
       }
 
-  const word = prefersReducedMotion
-    ? undefined
-    : {
+  const word = {
         rotate: (i: number) => ({
           y: ['-30%', '0%'],
           rotateX: [-90, 0],
@@ -63,7 +59,7 @@ export const RotatingText = ({
       variants={hoverArea}
       animate={animate}
       initial='initial'
-      whileHover={prefersReducedMotion ? { scale: 1.05 } : undefined}
+      whileHover= { scale: 1.05 } 
       onHoverStart={() => animate.start('rotate')}
       style={style}
     >
